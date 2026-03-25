@@ -140,7 +140,7 @@ function update() {
       if (player.vX > 0 && player.x + player.w < p.x + 10) {
         // TODO: Stop Yoshi from walking through bricks to the right
       } 
-      else if (player.vX < 0 && player.x > p.x + p.w - 10) {
+      else if (player.vX < 0 && player.x > p.x + p.w - 10 && player.y + player.h > p.y + 5) {
         // TODO: Stop Yoshi from walking through bricks to the left
       }
     }
