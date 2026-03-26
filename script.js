@@ -134,16 +134,26 @@ function update() {
       // --- PART B: THE HEAD-BUTT (Your Turn!) ---
       if (player.vY < 0 && player.y > p.y) {
         // TODO: Bounce down (vY = 2) and delete [?] blocks (splice)
+        player.vY = 2;
+        if (p.type === 'item') platforms.splice(i, 1);
+        score +=2; 
+        document.getElementById('score-num').innerText = score ;
+      
       }
       
       // --- PART C: GHOST WALLS (Your Turn!) ---
       if (player.vX > 0 && player.x + player.w < p.x + 10 
-          && player.y + player.h > p.y + 5) { // Feet buffer
+          && player.y + player.h > p.y + 5 && player.y < p.y + tileSize - 15) { // Feet buffer
         // TODO: Add the 'Ghost Head' check and stop Yoshi (vX = 0)
-      } 
+        player.x = p.x - player.w;
+        player.vX = 0;
+      }
+
       else if (player.vX < 0 && player.x > p.x + p.w - 10 
-          && player.y + player.h > p.y + 5) {
+          && player.y + player.h > p.y + 5 && player.y < p.y + tileSize - 15) {
         // TODO: Add the 'Ghost Head' check and stop Yoshi (vX = 0)
+        player.x = p.x + player.w;
+        player.vX = 0;
       }
     }
   });
