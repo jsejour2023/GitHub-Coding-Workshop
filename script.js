@@ -49,6 +49,13 @@ const levels = [
     [0,0,0,0,0,3,0,0,0,3,0,0,0,0,0,3,0,0,0,4],
     [1,1,1,0,0,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1]
   ],
+  [ // Level 3
+    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,2,0,0,0,2,0,2,2,0,0,0,0,0,0,0],
+    [0,0,0,0,0,3,0,0,0,3,0,0,0,0,0,3,0,0,0,4],
+    [1,1,1,0,0,1,1,2,1,0,0,2,1,1,1,1,1,1,1,1]
+  ],
+
   // TODO: Add Level 3, 4, and 5 here...
 ];
 
@@ -181,7 +188,6 @@ function update() {
       else {
         player.dead = true;
         document.getElementById('overlay').style.display = "Flex";
-
       }
 
     }
@@ -192,6 +198,10 @@ function update() {
    */
   goals.forEach(g => {
     // TODO: Collision check to advance levels
+    if (getCollision(player, g)) {
+      currentLevel++;
+      loadLevel(currentLevel);
+    }
   });
 
   draw();
