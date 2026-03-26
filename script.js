@@ -49,13 +49,6 @@ const levels = [
     [0,0,0,0,0,3,0,0,0,3,0,0,0,0,0,3,0,0,0,4],
     [1,1,1,0,0,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1]
   ],
-  [ //Level 3
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,1,1,0,0,0,2,0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,3,0,0,0,3,0,0,0,0,0,3,0,0,0,4],
-    [1,1,1,0,0,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1]
-  ]
   // TODO: Add Level 3, 4, and 5 here...
 ];
 
@@ -79,9 +72,9 @@ function loadLevel(idx) {
   /**
    * CHALLENGE 2: UI SYNCHRONIZATION
    * TODO: Update 'level-num' and 'score-num' in the HTML
-   */ 
-    document.getElementById('level-num').innerText = idx + 1;
-    document.getElementById('score-num').innerText = score;
+   */
+  document.getElementById('level-num').innerText = idx + 1;
+  document.getElementById('score-num').innerText = score ;
 
   const map = levels[idx];
   map.forEach((row, r) => {
@@ -118,12 +111,9 @@ function update() {
    */
   if (player.y > canvas.height) {
     // TODO: Set player.dead and show overlay
-    player.dead = true; 
-    document.getElementById('player.dead').style.display = 'flex';
-
-
+    player.dead = true ;
+    document.getElementById('overlay').style.display = 'flex';
   }
-
   platforms.forEach((p, i) => {
     if (getCollision(player, p)) {
       
