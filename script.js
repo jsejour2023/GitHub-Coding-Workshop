@@ -172,6 +172,18 @@ function update() {
        * CHALLENGE 5: STOMP OR DIE
        */
       // TODO: Logic for falling on top of enemy vs hitting from the side
+      if (player.vY > 0 && (player.y + player.h) < (en.y + 20)){
+       en.alive = false;
+       player.vY = -10;
+       score +=22
+       document.getElementById('score-num').innerText = score ;
+      }
+      else {
+        player.dead = true;
+        document.getElementById('overlay').style.display = "Flex";
+
+      }
+
     }
   });
 
