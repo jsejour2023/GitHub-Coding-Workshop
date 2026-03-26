@@ -118,6 +118,10 @@ function update() {
    */
   if (player.y > canvas.height) {
     // TODO: Set player.dead and show overlay
+    player.dead = true; 
+    document.getElementById('player.dead').style.display = 'flex';
+
+
   }
 
   platforms.forEach((p, i) => {
