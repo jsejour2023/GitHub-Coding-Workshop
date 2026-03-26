@@ -134,7 +134,6 @@ function update() {
       }
       
       // --- PART C: GHOST WALLS (Your Turn!) ---
-      // Hint: Use 'player.y < p.y + tileSize - 15' to let his head pass through!
       if (player.vX > 0 && player.x + player.w < p.x + 10 
           && player.y + player.h > p.y + 5) { // Feet buffer
         // TODO: Add the 'Ghost Head' check and stop Yoshi (vX = 0)
